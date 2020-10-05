@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_user">
+
+    <fragment
+        android:id="@+id/navigation_user"
+        android:name="com.joshua.mvvmwithflow.ui.userlist.UserListFragment"
+        android:label=""
+        tools:layout="@layout/fragment_userlist">
+        <action
+            android:id="@+id/action_user_detail"
+            app:destination="@id/navigation_user_detail">
+            <argument
+                android:name="myArg"
+                android:defaultValue="0"
+                app:argType="integer" />
+        </action>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_user_detail"
+        android:name="com.joshua.mvvmwithflow.ui.userdetail.UserDetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_userdetail" />
+
+</navigation>

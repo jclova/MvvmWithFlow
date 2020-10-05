@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/userlist_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:orientation="vertical"
+    android:foreground="?attr/selectableItemBackground"
+    tools:context=".ui.userlist.UserListFragment">
+
+
+    <TextView
+        android:id="@+id/userlist_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:text="John Smith" />
+
+    <TextView
+        android:id="@+id/userlist_like"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        tools:text="Number of likes: 3" />
+
+</LinearLayout>
