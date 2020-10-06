@@ -15,22 +15,16 @@ abstract class MyDatabase : RoomDatabase() {
 
     companion object {
         private const val DB_NAME = "myDatabase"
-        private var instance: MyDatabase? = null
+
+        @Volatile private var instance: MyDatabase? = null
 
         fun getInstance(context: Context): MyDatabase {
-            if (instance == null) {
-                synchronized(this) {
-                    if (instance == null) {
-                        instance = Room
-                            .databaseBuilder(
-                                context.applicationContext, MyDatabase::class.java,
-                                DB_NAME
-                            )
-                            .build()
-                    }
-                }
+            return instance ?: synchronized(this) {
+                instance ?: Room.databaseBuilder(
+                    context.applicationContext, MyDatabase::class.java, DB_NAME
+                ).build()
+                    .also { instance = it }
             }
-            return instance!!
         }
     }
 }
