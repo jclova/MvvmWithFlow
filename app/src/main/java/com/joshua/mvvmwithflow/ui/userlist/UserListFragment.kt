@@ -17,6 +17,7 @@ import com.joshua.mvvmwithflow.R
 import com.joshua.mvvmwithflow.data.model.User
 import kotlinx.android.synthetic.main.fragment_userlist.*
 import kotlinx.android.synthetic.main.item_userlist.view.*
+import timber.log.Timber
 
 class UserListFragment : Fragment() {
 
@@ -33,10 +34,6 @@ class UserListFragment : Fragment() {
         return root
     }
 
-    companion object {
-        var aa = false
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         userListAdapter = UserListAdapter(userListViewModel, viewLifecycleOwner)
@@ -45,6 +42,14 @@ class UserListFragment : Fragment() {
         userListViewModel.getUserList().observe(viewLifecycleOwner) {
             if (it != null)
                 userListAdapter.submitList(it)
+        }
+
+        userListViewModel.spinner.observe(viewLifecycleOwner) {
+            Timber.d("spinner $it")
+            if (it)
+                spinner.visibility = View.VISIBLE
+            else
+                spinner.visibility = View.GONE
         }
 
         userListViewModel.getNavigationRequest().observe(viewLifecycleOwner) { event ->
