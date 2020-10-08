@@ -30,6 +30,8 @@ https://github.com/square/retrofit
 
 https://medium.com/androiddevelopers/livedata-with-coroutines-and-flow-part-i-reactive-uis-b20f676d25d7
 
+Explain different operators with example: zip, combine, flatMapConcat, flatMapMerge, etc.
+https://kotlinlang.org/docs/reference/coroutines/flow.html
 
 
 <!-- LICENSE -->
